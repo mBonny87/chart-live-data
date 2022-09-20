@@ -1,0 +1,65 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jest": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "react-app",
+        "react-app/jest",
+        "airbnb",
+        "airbnb-typescript",
+        "plugin:import/typescript",
+        "eslint:recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": "./tsconfig.json"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint",
+        "react-hooks"
+    ],
+    "globals": {
+        "JSX": "readonly"
+    },
+    "rules": {
+        "linebreak-style": ["error", "windows"],
+        "no-use-before-define":"off",
+        "import/extensions":"off",
+        "import/no-unresolved":"off",
+        "import/no-extraneus-dependencies":"off",
+        "import/prefer-default-export":"off",
+        "max-len":"warn",
+        "max-lines":["warn",{"max":100, "skipBlankLines":true, "skipComments":true}],
+        "no-alert":"error",
+        "no-array-constructor":"warn",
+        "no-case-declarations":"off",
+        "no-console":["warn",{"allow":["warn","error"]}],
+        "no-continue":"warn",
+        "no-debugger":"error",
+        "no-eval":"warn",
+        "no-multi-spaces":"error",
+        "no-new":"warn",
+        "no-plusplus":"warn",
+        "no-tabs":"error",
+        "no-useless-catch":"warn",
+        "prefer-arrow-callback":"error",
+        "react/jsx-filename-extension": [ "warn", {"extensions": [".tsx"]} ],
+        "react/prop-types": "off",
+        "indent": ["error", 2],
+        "@typescript-eslint/no-unused-vars": [ "error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
+        "@typescript-eslint/explicit-function-return-type": "warn", // Consider using explicit annotations for object literals and function return types even when they can be inferred.
+        "no-empty": "warn",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "off"
+    }
+}
