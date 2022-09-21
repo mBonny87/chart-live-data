@@ -21,7 +21,7 @@
         },
         "ecmaVersion": "latest",
         "sourceType": "module",
-        "project": "./tsconfig.json"
+        "project": "./app/tsconfig.json"
     },
     "plugins": [
         "react",
