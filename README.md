@@ -1,5 +1,5 @@
 # chart-live-data
-Create live charts with fake real time data using socket.io and nodeJS for the server side, while ReactJS(tsx) + d3 for the client side to display beautiful data.
+Create live charts with random real time data using Socket.IO and NodeJS for the server side, while ReactJS(tsx) + D3.js for the client side to display beautiful data.
 
 ## How to - server side
 Open the server folder and start with the npm script 
