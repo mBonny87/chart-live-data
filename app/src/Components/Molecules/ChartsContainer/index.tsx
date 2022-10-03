@@ -14,7 +14,7 @@ const socket = io('ws://localhost:3001', {
   // }
 });
 
-export function ChartContainer() : JSX.Element | null {
+export const ChartContainer = () : JSX.Element | null => {
   const [temperature, setTemperature] = useState<Point[]>([]);
   const [humidity, setHumidity] = useState<Point[]>([]);
   const [precipitation, setPrecipitation] = useState<Point[]>([]);
@@ -56,4 +56,4 @@ export function ChartContainer() : JSX.Element | null {
       <AreaChart data={precipitation} width={500} height={500} color="#FFA31A" gradientId="orange-gradient" maxDisplayX={7} title="Precipitation" />
     </div>
   );
-}
+};

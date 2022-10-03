@@ -4,7 +4,7 @@ import {
 
 import {
   extent, scaleLinear, select, axisBottom,
-  axisLeft, line, curveCardinal, area, scaleTime, timeParse, timeFormat,
+  axisLeft, line, curveCardinal, area, scaleTime, timeParse, timeFormat, utcParse,
 } from 'd3';
 
 export const MARGIN = {
@@ -31,6 +31,7 @@ export const useAreaChart = ({
   const boundsHeight = height - MARGIN.top - MARGIN.bottom;
   const [maxY, setMaxY] = useState(30);
   const axesRef = useRef(null);
+  const socketDataFormat = '%Y-%m-%dT%H:%M:%SZ';
 
   // Y axis
   const [, max] = extent(data, (d) => d.y);
@@ -43,17 +44,18 @@ export const useAreaChart = ({
 
   // X axis
   const xScale = useMemo(() => scaleTime()
-    .domain(extent(data, (d) => timeParse('%H:%M:%SZ')(d.x)) as [Date, Date])
+    .domain(extent(data, (d) => utcParse(socketDataFormat)(d.x)) as [Date, Date])
     .range([0, boundsWidth]), [boundsWidth, data]);
 
+  // 2022-10-03T21:21:39Z
   const chartArea = area<Point>()
-    .x((d) => xScale(timeParse('%H:%M:%SZ')(d.x) as Date))
+    .x((d) => xScale(utcParse(socketDataFormat)(d.x) as Date))
     .y0(boundsHeight)
     .y1((d) => yScale(d.y))
     .curve(curveCardinal);
 
   const chartLine = line<Point>()
-    .x((d) => xScale(timeParse('%H:%M:%SZ')(d.x) as Date))
+    .x((d) => xScale(timeParse(socketDataFormat)(d.x) as Date))
     .y((d) => yScale(d.y)).curve(curveCardinal);
 
   useLayoutEffect(() => {

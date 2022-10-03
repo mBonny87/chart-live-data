@@ -4,9 +4,9 @@ import { AreaChartProps, MARGIN, useAreaChart } from '../../../hooks/useAreachar
 
 import styles from './style.module.css';
 
-export function AreaChart({
+export const AreaChart = ({
   width, height, data, color, gradientId, maxDisplayX, title,
-}: AreaChartProps): JSX.Element | null {
+}: AreaChartProps): JSX.Element | null => {
   const {
     boundsWidth, boundsHeight, axesRef,
   } = useAreaChart({
@@ -36,4 +36,4 @@ export function AreaChart({
       </svg>
     </div>
   );
-}
+};
